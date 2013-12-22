@@ -11,22 +11,25 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131222230547) do
+ActiveRecord::Schema.define(:version => 20131222232739) do
 
   create_table "contacts", :force => true do |t|
     t.string   "name"
     t.string   "email"
     t.string   "phone"
     t.string   "position"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+    t.integer  "customer_id"
   end
 
   create_table "customers", :force => true do |t|
     t.string   "name"
     t.string   "address"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",    :null => false
+    t.datetime "updated_at",    :null => false
+    t.integer  "supervisor_id"
+    t.integer  "user_id"
   end
 
   create_table "events", :force => true do |t|
@@ -35,6 +38,8 @@ ActiveRecord::Schema.define(:version => 20131222230547) do
     t.datetime "date"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.integer  "contact_id"
+    t.integer  "user_id"
   end
 
   create_table "supervisors", :force => true do |t|
@@ -69,6 +74,7 @@ ActiveRecord::Schema.define(:version => 20131222230547) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
+    t.integer  "supervisor_id"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
