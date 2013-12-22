@@ -21,6 +21,11 @@ group :assets do
 end
 
 gem 'jquery-rails'
+gem 'geocoder'
+gem 'devise'
+gem 'haml','4.0.3'
+gem 'better_errors'
+gem 'pry-rails'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
