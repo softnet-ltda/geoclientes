@@ -1,4 +1,6 @@
 Geoclientes::Application.routes.draw do
+  devise_for :users
+
   devise_for :supervisors
 
   # The priority is based upon order of creation:
