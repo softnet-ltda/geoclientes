@@ -20,12 +20,12 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
-gem 'jquery-rails'
 gem 'geocoder'
+gem "jquery-rails"
 gem 'devise'
 gem 'haml','4.0.3'
-gem 'better_errors'
 gem 'pry-rails'
+gem 'activeadmin'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
