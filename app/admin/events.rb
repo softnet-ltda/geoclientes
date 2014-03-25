@@ -11,6 +11,8 @@ ActiveAdmin.register Event do
 		  f.input :date, :as => :time_picker, :label => "Hora"
 		  f.input :status
 		  f.input :type, :label => "Tipo"
+		  f.input :user, :label => "Usuario"
+		  f.input :contact, :label => "Cliente"
 	  end
 	  f.actions
   end
