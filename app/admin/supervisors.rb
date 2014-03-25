@@ -1,5 +1,5 @@
 ActiveAdmin.register Supervisor do
-  index do
+  index :title => "Supervisores" do
     column :email
     default_actions
   end
