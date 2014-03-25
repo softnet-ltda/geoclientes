@@ -1,8 +1,8 @@
 ActiveAdmin.register Supervisor do
-  index do                            
-    column :email        
-    default_actions                   
-  end                                 
+  index do
+    column :email
+    default_actions
+  end
   form :html => { :enctype => "multipart/form-data" } do |f|
 	  f.inputs "Details" do
 		  f.input :email

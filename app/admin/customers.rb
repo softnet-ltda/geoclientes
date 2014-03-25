@@ -1,11 +1,11 @@
 ActiveAdmin.register Customer do
-  index do                            
-    column :name, :label => "Nombre"        
+  index :title => "Clientes" do
+    column :name, :label => "Nombre"
     column :address, :label => "Direccion"
-    default_actions                   
-  end                                 
+    default_actions
+  end
   form :html => { :enctype => "multipart/form-data" } do |f|
-	  f.inputs "Details" do
+	  f.inputs "Detalles" do
 		  f.input :name, :label => "Nombre"
 		  f.input :address, :label => "Direccion"
 	  end

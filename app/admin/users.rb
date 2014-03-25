@@ -1,9 +1,9 @@
 ActiveAdmin.register User do
-  index do                            
-    column :name, :label => "Nombre"       
-    column :email, :label => "Email"           
-    default_actions                   
-  end                                 
+  index :title => "Usuarios" do
+    column :name, :label => "Nombre"
+    column :email, :label => "Email"
+    default_actions
+  end
   form :html => { :enctype => "multipart/form-data" } do |f|
 	  f.inputs "Details" do
 		  f.input :name, :label => "Nombre"
