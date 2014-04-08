@@ -4,7 +4,9 @@ class CustomersController < ApplicationController
   end
 
   def create
-	  @customer = Customer.new(params[:user])
+	  @customer = Customer.new(params[:customer])
+	  @customer.save
+	  render 'show'
   end
 
   def show
