@@ -1,4 +1,12 @@
 Geoclientes::Application.routes.draw do
+  get "user/new"
+
+  get "user/create"
+
+  get "user/edit"
+
+  get "user/show"
+
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
 
