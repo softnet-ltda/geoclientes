@@ -1,4 +1,18 @@
 %h1=@customer.name
 =@customer.address
-= raw "<iframe width='825' height='350' frameborder='0' scrolling='no' marginheight='0' marginwidth='0' src='https://maps.google.com/maps?q=#{@customer.latitude},#{@customer.longitude}&output=embed'></iframe><br /><small><a href='https://maps.google.com/maps?q=-33.4849296,-70.6516719&amp;ie=UTF8&amp;ll=-33.48493,-70.651672&amp;spn=0.010111,0.021136&amp;t=m&amp;z=14&amp;source=embed' style='color:#0000FF;text-align:left'>View Larger Map</a></small>"
-
+#map-canvas
+:javascript
+  function initialize() {
+    var location = new google.maps.LatLng(#{@customer.latitude},#{@customer.longitude})
+    var mapOptions = {
+      zoom: 4,
+      center: location
+  }
+  var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+  var marker = new google.maps.Marker({
+    position: location,
+    map: map,
+    title: #{@customer.name}
+  });
+}
+google.maps.event.addDomListener(window, 'load', initialize);
