@@ -1,3 +1,23 @@
 - @customers.each do |customer|
   =customer.name
   =customer.address
+#map-canvas{:style => "height:400px;margin:0px;padding:0px;"}
+  %nbsp
+:javascript
+  function initialize() {
+    var locations = JSON.parse('#{@locs.to_json}')
+    var mapOptions = {
+      zoom: 14,
+      center: new google.maps.LatLng(locations[0][1],locations[0][2])
+  }
+  var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+  var marker,i;
+  for (i = 0;i < locations.length;i++){
+    var marker = new google.maps.Marker({
+      position: new google.maps.LatLng(locations[i][1],locations[i][2]),
+      map: map,
+      title: locations[i][0]
+    });
+    }
+  }
+  google.maps.event.addDomListener(window, 'load', initialize);
