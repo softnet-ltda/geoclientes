@@ -27,6 +27,8 @@ gem 'haml','4.0.3'
 gem 'pry-rails'
 gem 'activeadmin'
 gem 'jquery-ui-rails'
+gem 'twitter-bootstrap-rails'
+gem 'therubyracer'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
