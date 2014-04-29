@@ -1,10 +1,16 @@
 %h1=@customer.name
-=@customer.address
+.customer-address=@customer.address
 %h3 
   Contactos
 -@customer.contacts.each do |c|
   =c.name
-  =link_to("Agendar evento","/events/new")
+  %button.event-toggle
+    Crear evento
+  .event-form
+    =form_tag("/events", method: "post") do
+      = label_tag(:user_id, "User:")
+      = text_field_tag(:user_id)
+      = submit_tag("Agendar evento")
 
 #map-canvas{:style => "height:400px;margin:0px;padding:0px;"}
   %nbsp
@@ -18,8 +24,8 @@
   var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
   var marker = new google.maps.Marker({
     position: location,
-    map: map,
-    title: "#{@customer.name}"
+    title: "#{@customer.name}",
+    map: map
   });
   }
   google.maps.event.addDomListener(window, 'load', initialize);
