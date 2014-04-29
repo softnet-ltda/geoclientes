@@ -1,7 +1,8 @@
-- @customers.each do |customer|
-  =customer.name
-  =customer.address
-#map-canvas{:style => "height:400px;margin:0px;padding:0px;"}
+.container.col-md-4
+  - @customers.each do |customer|
+    .customer-name=link_to(customer.name,url_for(customer))
+    .customer-address=customer.address
+.col-md-4#map-canvas{:style => "height:400px;margin:0px;padding:0px;"}
   %nbsp
 :javascript
   function initialize() {

@@ -1,5 +1,7 @@
 Geoclientes::Application.routes.draw do
   resources :users
+  resources :events
+  resources :contacts
   resources :customers
 
   devise_for :admin_users, ActiveAdmin::Devise.config
