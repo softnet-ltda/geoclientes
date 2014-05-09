@@ -1,25 +1,36 @@
-.col-md-5.contact-events
-  =@events.each do |e|
-    .event
+.col-md-4.contact-events
+  -@events.each do |e|
+    .event{:style => "margin-bottom:30px;background:#ddd;padding:15px;"}
+      Nombre del cliente:
+      .event-customer-name=e.contact.customer.name
+      Direccion:
+      .event-customer-address=e.contact.customer.address
+      Fecha:
       .event-date=e.date
-      .event-type=e.type
+      Tipo:
+      .event-type=e.event_type
+      Nombre del vendedor:
       .event-user=e.user.name
+      Nombre del contacto:
       .event-contact=e.contact.name
-.col-md-5#map-canvas{:style => "width:800px;height:400px;margin:0px;padding:0px;margin-top:50px;"}
+.col-md-5#map-canvas{:style => "width:800px;height:400px;margin:0px;padding:0px;"}
   %nbsp
 .row
 :javascript
   function initialize() {
-    var location = new google.maps.LatLng(#{@customer.latitude},#{@customer.longitude})
+    var locations = JSON.parse('#{@locs.to_json}')
     var mapOptions = {
       zoom: 14,
-      center: location
+      center: new google.maps.LatLng(locations[0][1],locations[0][2])
   }
   var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
-  var marker = new google.maps.Marker({
-    position: location,
-    title: "#{@customer.name}",
-    map: map
-  });
+  var marker,i;
+  for (i = 0;i < locations.length;i++){
+    var marker = new google.maps.Marker({
+      position: new google.maps.LatLng(locations[i][1],locations[i][2]),
+      map: map,
+      title: locations[i][0]
+    });
+    }
   }
   google.maps.event.addDomListener(window, 'load', initialize);

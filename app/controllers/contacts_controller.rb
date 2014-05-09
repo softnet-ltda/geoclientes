@@ -5,6 +5,7 @@ class ContactsController < ApplicationController
 	  render 'index'
   end
   def new
+	  @contact = Contact.new
   end
   def index
 	  @contacts = Contact.all

@@ -11,6 +11,7 @@ class CustomersController < ApplicationController
 
   def show
 	  @customer = Customer.find(params[:id])
+	  @event = Event.new
 	  @loc = []
 	  @point = [@customer.name, @customer.latitude, @customer.longitude]
 	  @loc.push(@point)

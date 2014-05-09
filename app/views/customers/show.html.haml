@@ -7,14 +7,13 @@
       =c.name
       %button.event-toggle
         Crear evento
-      .event-form
-        =form_tag("/events", method: "post") do
-          = hidden_field_tag(:contact_id,c.id)
-          = hidden_field_tag(:user_id,current_user.id)
-          = submit_tag("Agendar evento")
-    =link_to("Crear nuevo contacto",url_for(new_contact_path))
+      -current_user = User.first
+      -if current_user
+        .event-form{:style => "display:none"}
+          =render 'events/form', :c => c, :current_user => current_user
+  =link_to("Crear nuevo contacto",url_for(new_contact_path))
 
-.col-md-5#map-canvas{:style => "width:800px;height:400px;margin:0px;padding:0px;margin-top:50px;"}
+.col-md-6#map-canvas{:style => "height:400px;margin:0px;padding:0px;margin-top:50px;"}
   %nbsp
 .row
 :javascript

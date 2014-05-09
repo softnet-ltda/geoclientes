@@ -1,11 +1,13 @@
 %link{href: "http://geoclientes.com/css/style.css", rel: "stylesheet"}/
 %link{href: "main.css", media: "screen", rel: "stylesheet", type: "text/css"}/
-.container.col-md-4(style="margin-top:50px;")
+.customers.col-md-4(style="margin-top:50px;")
   - @customers.each do |customer|
-    .customer-name=link_to(customer.name,url_for(customer))
-    .customer-address=customer.address
+    .customer
+      .customer-name=link_to(customer.name,url_for(customer))
+      .customer-address=customer.address
 .col-md-6#map-canvas{:style => "width:800px;height:400px;margin:0px;padding:0px;margin-top:50px;"}
   %nbsp
+.row
 :javascript
   function initialize() {
     var locations = JSON.parse('#{@locs.to_json}')
