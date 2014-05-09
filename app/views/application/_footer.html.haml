@@ -1,10 +1,7 @@
 %footer
-  .container_12
-    .grid_12
-      .copy
-        %a{href: "#", onclick: "goToByScroll('page1'); return false;"}
-          %img{alt: "", src: "http://geoclientes.com/images/footer_logo.png"}/
-        © 2013 |
-        %a{href: "#"} Privacy Policy
-        %br/
-    .clear
+  .col-md-12{:style => "margin-top:120px;"}
+  .copy
+    %a{href: "#", onclick: "goToByScroll('page1'); return false;"}
+      %img{alt: "", src: "http://geoclientes.com/images/footer_logo.png"}
+    =DateTime.now.year.to_s+"|"
+    %a{href: "#"} Privacy Policy

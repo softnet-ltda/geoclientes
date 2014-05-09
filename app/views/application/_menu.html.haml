@@ -4,19 +4,15 @@
     .navbar-header
       %button.navbar-toggle{"data-target" => "#bs-example-navbar-collapse-1", "data-toggle" => "collapse", type: "button"}
         %span.sr-only Toggle navigation
-        %span.icon-bar
-        %span.icon-bar
-        %span.icon-bar
-      %a.navbar-brand(style="height:75px;")
+      %a.navbar-brand(style="height:80px;" href="/")
         %img(src="http://geoclientes.com/images/logo.png")
     / Collect the nav links, forms, and other content for toggling
     #bs-example-navbar-collapse-1.collapse.navbar-collapse
-      %ul.nav.navbar-nav
+      %ul.nav.navbar-nav{:style => "margin-top:15px;"}
         %li.active
           %a{href: "/customers"} Clientes
         %li
           %a{href: "/events"} Eventos
         %li
           %a{href: "/contacts"} Contactos
-    / /.navbar-collapse
-  / /.container-fluid
+    .navbar-collapse
