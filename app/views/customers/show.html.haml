@@ -1,17 +1,18 @@
 .col-md-5
   .customer-name=@customer.name
   .customer-address=@customer.address
-  Contactos
-  =link_to("Crear nuevo contacto",url_for(new_contact_path))
-  -@customer.contacts.each do |c|
-    =c.name
-    %button.event-toggle
-      Crear evento
-    .event-form
-      =form_tag("/events", method: "post") do
-        = hidden_field_tag(:contact_id,c.id)
-        = hidden_field_tag(:user_id,current_user.id)
-        = submit_tag("Agendar evento")
+  .contacts
+    .contacts-title Contactos
+    -@customer.contacts.each do |c|
+      =c.name
+      %button.event-toggle
+        Crear evento
+      .event-form
+        =form_tag("/events", method: "post") do
+          = hidden_field_tag(:contact_id,c.id)
+          = hidden_field_tag(:user_id,current_user.id)
+          = submit_tag("Agendar evento")
+    =link_to("Crear nuevo contacto",url_for(new_contact_path))
 
 .col-md-5#map-canvas{:style => "width:800px;height:400px;margin:0px;padding:0px;margin-top:50px;"}
   %nbsp
