@@ -4,4 +4,6 @@ class ContactsController < ApplicationController
 	  @contact.save
 	  render 'index'
   end
+  def new
+  end
 end

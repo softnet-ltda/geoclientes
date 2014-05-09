@@ -1,19 +1,21 @@
-%h1=@customer.name
-.customer-address=@customer.address
-%h3 
+.col-md-5
+  .customer-name=@customer.name
+  .customer-address=@customer.address
   Contactos
--@customer.contacts.each do |c|
-  =c.name
-  %button.event-toggle
-    Crear evento
-  .event-form
-    =form_tag("/events", method: "post") do
-      = label_tag(:user_id, "User:")
-      = text_field_tag(:user_id)
-      = submit_tag("Agendar evento")
+  =link_to("Crear nuevo contacto",url_for(new_contact_path))
+  -@customer.contacts.each do |c|
+    =c.name
+    %button.event-toggle
+      Crear evento
+    .event-form
+      =form_tag("/events", method: "post") do
+        = hidden_field_tag(:contact_id,c.id)
+        = hidden_field_tag(:user_id,current_user.id)
+        = submit_tag("Agendar evento")
 
-#map-canvas{:style => "height:400px;margin:0px;padding:0px;"}
+.col-md-5#map-canvas{:style => "width:800px;height:400px;margin:0px;padding:0px;margin-top:50px;"}
   %nbsp
+.row
 :javascript
   function initialize() {
     var location = new google.maps.LatLng(#{@customer.latitude},#{@customer.longitude})
