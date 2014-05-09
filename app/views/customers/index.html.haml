@@ -1,5 +1,5 @@
 %link{href: "http://geoclientes.com/css/style.css", rel: "stylesheet"}/
-%link{href: "http://geoclientes.com/css/main.css", media: "screen", rel: "stylesheet", type: "text/css"}/
+%link{href: "main.css", media: "screen", rel: "stylesheet", type: "text/css"}/
 .container.col-md-4(style="margin-top:50px;")
   - @customers.each do |customer|
     .customer-name=link_to(customer.name,url_for(customer))
