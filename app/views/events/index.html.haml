@@ -1,0 +1,25 @@
+.col-md-5.contact-events
+  =@events.each do |e|
+    .event
+      .event-date=e.date
+      .event-type=e.type
+      .event-user=e.user.name
+      .event-contact=e.contact.name
+.col-md-5#map-canvas{:style => "width:800px;height:400px;margin:0px;padding:0px;margin-top:50px;"}
+  %nbsp
+.row
+:javascript
+  function initialize() {
+    var location = new google.maps.LatLng(#{@customer.latitude},#{@customer.longitude})
+    var mapOptions = {
+      zoom: 14,
+      center: location
+  }
+  var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+  var marker = new google.maps.Marker({
+    position: location,
+    title: "#{@customer.name}",
+    map: map
+  });
+  }
+  google.maps.event.addDomListener(window, 'load', initialize);

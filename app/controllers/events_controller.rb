@@ -4,4 +4,10 @@ class EventsController < ApplicationController
 	  @event.save
 	  render 'index'
   end
+  def show
+	  @event = Event.find(params[:id])
+  end
+  def index
+	  @events = Event.all
+  end
 end
