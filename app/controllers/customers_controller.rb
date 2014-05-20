@@ -1,4 +1,6 @@
 class CustomersController < ApplicationController
+  before_filter :authenticate_user!
+
   def new
 	  @customer = Customer.new
   end

@@ -1,4 +1,6 @@
 class EventsController < ApplicationController
+  before_filter :authenticate_user!
+
   def create
 	  @event = Event.new(params[:event])
 	  @event.user = User.find(params[:user_id])
