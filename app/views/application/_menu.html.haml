@@ -15,4 +15,9 @@
           %a{href: "/events"} Eventos
         %li
           %a{href: "/contacts"} Contactos
+        %li{style: "margin-left:480px;"}
+          -if current_user.nil?
+            %a{href: "/users/sign_in"} Ingresar
+          -else
+            %a{href:"users/"+current_user.id.to_s}=current_user.email
     .navbar-collapse
