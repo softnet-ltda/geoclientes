@@ -5,7 +5,7 @@ ActiveAdmin.register User do
     default_actions
   end
   form :html => { :enctype => "multipart/form-data" } do |f|
-	  f.inputs "Details" do
+	  f.inputs "Detalles" do
 		  f.input :name, :label => "Nombre"
 		  f.input :email, :label => "Email"
 		  f.input :password, :label => "Contrasena"
@@ -13,7 +13,7 @@ ActiveAdmin.register User do
 	  end
 	  f.actions
   end
-  show :title => "Detalles Cliente" do |v|
+  show :title => "Detalles Usuario" do |v|
 	  attributes_table do
 		  row :name, :label => "Nombre"
 		  row :email, :label => "Email"
