@@ -1,6 +1,6 @@
 .col-md-4.contact-events
   -@events.each do |e|
-    .event{:style => "margin-bottom:30px;background:#ddd;padding:15px;"}
+    .event{style: "margin-bottom:30px;background:#ddd;padding:15px;"}
       Nombre del cliente:
       .event-customer-name
         %a{href: "customers/"+e.contact.customer.id.to_s}=e.contact.customer.name

@@ -9,11 +9,11 @@
     / Collect the nav links, forms, and other content for toggling
     #bs-example-navbar-collapse-1.collapse.navbar-collapse
       %ul.nav.navbar-nav{:style => "margin-top:15px;"}
-        %li.active
+        %li.active.menu-customers
           %a{href: "/customers"} Clientes
-        %li
+        %li.menu-events
           %a{href: "/events"} Eventos
-        %li
+        %li.menu-contacts
           %a{href: "/contacts"} Contactos
         %li{style: "margin-left:480px;"}
           -if current_user.nil? && current_supervisor.nil?

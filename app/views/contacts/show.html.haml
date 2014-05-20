@@ -1,8 +1,26 @@
-.col-md-12
-  .name Nombre
-  .contact-name=@contact.name
-  .email Email
-  .contact-email=@contact.email
-  .position Cargo
-  .contact-position=@contact.position
+.col-md-4
+  .contact{style: "margin-bottom:30px;background:#ddd;padding:15px;"}
+    %h4 Nombre
+    .contact-name=@contact.name
+    %h4 Email
+    .contact-email=@contact.email
+    %h4 Cargo
+    .contact-position=@contact.position
+.col-md-6#map-canvas{:style => "height:400px;margin:0px;padding:0px;"}
+  %nbsp
 .row
+:javascript
+  function initialize() {
+    var location = new google.maps.LatLng(#{@contact.customer.latitude},#{@contact.customer.longitude})
+    var mapOptions = {
+      zoom: 14,
+      center: location
+  }
+  var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+  var marker = new google.maps.Marker({
+    position: location,
+    title: "#{@contact.customer.name}",
+    map: map
+  });
+  }
+  google.maps.event.addDomListener(window, 'load', initialize);
