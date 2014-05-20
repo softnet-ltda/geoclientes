@@ -1,0 +1,13 @@
+.col-md-4
+  =form_for(@contact) do |f|
+    =f.label :name, "Nombre"
+    .input-small=f.text_field :name
+    =f.label :email
+    .input-small=f.text_field :email
+    =f.label :phone, "Telefono"
+    .input-small=f.text_field :phone
+    =f.label :position, "Cargo"
+    .input-small=f.text_field :position
+    .sub{:style => "margin-top:30px"}
+      =f.submit "Guardar cambios", class: "btn btn-large btn-primary"
+.row
