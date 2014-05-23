@@ -1,5 +1,6 @@
 class CustomersController < ApplicationController
   before_filter :authenticate_user!
+  before_filter :authenticate_supervisor!, :only => :new
 
   def new
 	  @customer = Customer.new
