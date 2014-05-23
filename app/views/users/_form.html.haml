@@ -1,7 +1,10 @@
-%h1= "Editar Usuario"
-=form_for(@user) do |f|
-  =f.label :name
-  =f.text_field :name
-  =f.label :email
-  =f.text_field :email
-  =f.submit "Guardar cambios", class: "btn btn-large btn-primary" 
+.col-md-4
+  =form_for(@user) do |f|
+    =f.label :name
+    .input-small=f.text_field :name
+    %br
+    =f.label :email
+    .input-small=f.text_field :email
+    %br
+    =f.submit "Guardar cambios", class: "btn btn-large btn-primary" 
+.row
