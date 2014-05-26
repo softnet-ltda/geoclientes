@@ -15,17 +15,21 @@
           %a{href: "/events"} Eventos
         %li.menu-contacts
           %a{href: "/contacts"} Contactos
-        %li{style: "margin-left:480px;"}
-          -if !current_admin_user.nil?
+      %ul.nav.navbar-nav.navbar-right{:style => "margin-top:15px;"}
+        -if !current_admin_user.nil?
+          %li
             %a{href:"admin_users/"+current_admin_user.id.to_s}=current_admin_user.email
             %li{style: "font-size:smaller;"}= link_to('[Logout]', destroy_admin_user_session_path, :method => :delete)
-          -elsif current_user.nil? && current_supervisor.nil?
+        -elsif current_user.nil? && current_supervisor.nil?
+          %li
             %a{href: "/users/sign_in"} Ingresar
-          -else
-            -if !current_user.nil?
+        -else
+          -if !current_user.nil?
+            %li
               %a{href:"users/"+current_user.id.to_s}=current_user.email
               %li{style: "font-size:smaller;"}= link_to('[Logout]', destroy_user_session_path, :method => :delete)
-            -elsif !current_supervisor.nil?
+          -elsif !current_supervisor.nil?
+            %li
               %a{href:"supervisors/"+current_supervisor.id.to_s}=current_supervisor.email
               %li{style: "font-size:smaller;"}= link_to('[Logout]', destroy_supervisor_session_path, :method => :delete)
     .navbar-collapse
