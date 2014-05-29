@@ -1,15 +1,10 @@
 Geoclientes::Application.routes.draw do
   devise_for :users
-  devise_for :admin_users
   resources :users
   resources :events
   resources :contacts
   resources :customers
 
-  devise_for :admin_users
-
-
-  devise_for :supervisors
   ActiveAdmin.routes(self)
 
   # The priority is based upon order of creation:
