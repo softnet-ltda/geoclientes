@@ -13,8 +13,8 @@
       %br
       - if devise_mapping.rememberable?
         = f.check_box :remember_me
-        = f.label "Recordarme"
+        = f.label "No cerrar sesion"
       %br
-      = f.submit "Ingresar"
+      = f.submit "Iniciar sesion"
     = render "devise/shared/links"
 .row
