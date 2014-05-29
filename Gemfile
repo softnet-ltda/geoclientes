@@ -23,6 +23,7 @@ end
 gem 'geocoder'
 gem "jquery-rails", "~> 2.3.0"
 gem 'devise'
+gem 'devise_invitable'
 gem 'haml','4.0.3'
 gem 'pry-rails'
 gem 'activeadmin'
