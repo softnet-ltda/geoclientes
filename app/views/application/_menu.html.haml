@@ -9,8 +9,9 @@
     / Collect the nav links, forms, and other content for toggling
     #bs-example-navbar-collapse-1.collapse.navbar-collapse
       %ul.nav.navbar-nav{:style => "margin-top:15px;"}
-        %li.menu-customers
-          %a{href: "/users"} Usuarios
+        -if !current_user.nil? && current_user.role < 2
+          %li.menu-customers
+            %a{href: "/users"} Usuarios
         %li.menu-customers
           %a{href: "/customers"} Clientes
         %li.menu-contacts
