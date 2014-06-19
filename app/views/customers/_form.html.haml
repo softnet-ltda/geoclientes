@@ -1,7 +1,7 @@
-%h1= "Editar Cliente"
 =form_for(@customer) do |f|
   =f.label :name
-  =f.text_field :name
+  .input-small=f.text_field :name
   =f.label :address
-  =f.text_field :address
+  .input-small=f.text_field :address
+  %br
   =f.submit "Guardar cambios", class: "btn btn-large btn-primary" 

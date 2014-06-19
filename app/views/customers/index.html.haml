@@ -6,7 +6,10 @@
         .customer-address=customer.address
   .col-md-8#map-canvas{:style => "height:400px;margin:0px;padding:0px;margin-top:30px;"}
     %nbsp
-.row
+  .row
+    .col-md-4
+      %h4 Crear Cliente:
+      =render 'form'
 :javascript
   function initialize() {
     var locations = JSON.parse('#{@locs.to_json}')

@@ -1,18 +1,24 @@
-.col-md-5
-  .customer-name=@customer.name
-  .customer-address=@customer.address
-  .contacts
-    .contacts-title Contactos
-    -@customer.contacts.each do |c|
-      =c.name
-      %button.event-toggle
-        Crear evento
-      .event-form{:style => "display:none"}
-        =render 'events/form', :c => c, :current_user => current_user
-  =link_to("Crear nuevo contacto",url_for(new_contact_path)+"?customer_id="+@customer.id.to_s)
+.container
+  .col-md-5
+    .customer-name=@customer.name
+    .customer-address=@customer.address
+    .contacts
+      .contacts-title Contactos
+      -@customer.contacts.each do |c|
+        =link_to c.name, c
+        %button.event-toggle
+          Crear evento
+        .event-form{:style => "display:none"}
+          =render 'events/form', :c => c, :current_user => current_user
+    =link_to("Crear nuevo contacto",url_for(new_contact_path)+"?customer_id="+@customer.id.to_s)
 
-.col-md-6#map-canvas{:style => "height:400px;margin:0px;padding:0px;margin-top:50px;"}
-  %nbsp
+    -if current_user.role < 2
+      %br
+      %br
+      %h4 Editar Cliente:
+      =render 'form'
+  .col-md-6#map-canvas{:style => "height:400px;margin:0px;padding:0px;margin-top:50px;"}
+    %nbsp
 .row
 :javascript
   function initialize() {

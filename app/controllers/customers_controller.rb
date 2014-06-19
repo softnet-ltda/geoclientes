@@ -23,6 +23,7 @@ class CustomersController < ApplicationController
 
   def index
 	  @customers = Customer.all
+	  @customer = Customer.new
 	  @locs = []
 	  @customers.each do |c|
 		  @point = [c.name, c.latitude, c.longitude]
