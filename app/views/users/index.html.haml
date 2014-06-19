@@ -4,5 +4,8 @@
       %h2 Crear usuario
       =link_to "Crear usuario",new_user_invitation_path
     %h2 Lista de Usuarios
+    %ul
     - @users.each do |user|
-      .user_name=link_to user.name, user
+      %li
+        .user_name=link_to user.name, user
+        .user_email=user.email
