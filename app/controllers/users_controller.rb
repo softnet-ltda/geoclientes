@@ -17,6 +17,7 @@ class UsersController < ApplicationController
 
   def show
 	  @user = User.find(params[:id])
+	  @supervisor_candidates = User.where("role < 2")
   end
 
   def update
