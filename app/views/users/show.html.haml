@@ -1,0 +1,14 @@
+.container
+  .col-md-8
+    %h1
+      -if !@user.name.nil? 
+        Nombre: 
+        =@user.name 
+    %h4
+      Nivel de permisos:
+      =@user.role_s
+    -if current_user.role < 2
+      %br
+      %br
+      %h4 Editar Usuario:
+      =render 'form'

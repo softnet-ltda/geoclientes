@@ -8,6 +8,8 @@
     .input-small=f.text_field :phone
     =f.label :position, "Cargo"
     .input-small=f.text_field :position
+    .input-hidden
+      %input{:type => "hidden", :name => "contact[customer_id]", :value => params[:customer_id]}
     .sub{:style => "margin-top:30px"}
       =f.submit "Guardar cambios", class: "btn btn-large btn-primary"
 .row

@@ -5,6 +5,12 @@
     %br
     =f.label :email
     .input-small=f.text_field :email
+    -if current_user.role == 0
+      =f.label "Nivel de permisos"
+      .input-small
+        %select(name="user[role]")
+          %option(value=1) Supervisor
+          %option(value=2) User
     %br
     =f.submit "Guardar cambios", class: "btn btn-large btn-primary" 
 .row

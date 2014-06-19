@@ -1,5 +1,14 @@
 Geoclientes::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
+  config.action_mailer.default_url_options = { :host => 'desastre.cl:3456' }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+	    :address => "127.0.0.1",
+		  :port    => 25,
+		    :domain  => 'desastre.cl',
+			:openssl_verify_mode  => 'none'
+  }
+
 
   # Code is not reloaded between requests
   config.cache_classes = true
@@ -15,7 +24,7 @@ Geoclientes::Application.configure do
   config.assets.compress = true
 
   # Don't fallback to assets pipeline if a precompiled asset is missed
-  config.assets.compile = false
+  config.assets.compile = true
 
   # Generate digests for assets URLs
   config.assets.digest = true

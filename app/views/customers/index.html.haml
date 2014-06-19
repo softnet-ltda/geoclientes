@@ -1,18 +1,17 @@
-%link{href: "http://geoclientes.com/css/style.css", rel: "stylesheet"}/
-%link{href: "main.css", media: "screen", rel: "stylesheet", type: "text/css"}/
-.customers.col-md-4(style="margin-top:50px;")
-  - @customers.each do |customer|
-    .customer
-      .customer-name=link_to(customer.name,url_for(customer))
-      .customer-address=customer.address
-.col-md-6#map-canvas{:style => "width:800px;height:400px;margin:0px;padding:0px;margin-top:50px;"}
-  %nbsp
+.container
+  .customers.col-md-4
+    - @customers.each do |customer|
+      .customer
+        .customer-name=link_to(customer.name,url_for(customer))
+        .customer-address=customer.address
+  .col-md-8#map-canvas{:style => "height:400px;margin:0px;padding:0px;margin-top:30px;"}
+    %nbsp
 .row
 :javascript
   function initialize() {
     var locations = JSON.parse('#{@locs.to_json}')
     var mapOptions = {
-      zoom: 14,
+      zoom: 12,
       center: new google.maps.LatLng(locations[0][1],locations[0][2])
   }
   var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);

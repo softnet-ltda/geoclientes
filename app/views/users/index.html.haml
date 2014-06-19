@@ -1,6 +1,8 @@
--if current_user.role == 0
-  %h2 Crear usuario
-  =link_to "Crear usuario", new_user_path
-%h2 Lista de Usuarios
-- @users.each do |user|
-  .user_name=link_to user.name, user
+.container
+  .col-md-8
+    -if current_user.role == 0
+      %h2 Crear usuario
+      =link_to "Crear usuario",new_user_invitation_path
+    %h2 Lista de Usuarios
+    - @users.each do |user|
+      .user_name=link_to user.name, user

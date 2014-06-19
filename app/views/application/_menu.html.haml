@@ -9,15 +9,16 @@
     / Collect the nav links, forms, and other content for toggling
     #bs-example-navbar-collapse-1.collapse.navbar-collapse
       %ul.nav.navbar-nav{:style => "margin-top:15px;"}
-        -if !current_user.nil? && current_user.role < 2
+        -if !current_user.nil? 
+          -if current_user.role < 2
+            %li.menu-customers
+              %a{href: "/users"} Usuarios
           %li.menu-customers
-            %a{href: "/users"} Usuarios
-        %li.menu-customers
-          %a{href: "/customers"} Clientes
-        %li.menu-contacts
-          %a{href: "/contacts"} Contactos
-        %li.menu-events
-          %a{href: "/events"} Eventos
+            %a{href: "/customers"} Clientes
+          %li.menu-contacts
+            %a{href: "/contacts"} Contactos
+          %li.menu-events
+            %a{href: "/events"} Eventos
       %ul.nav.navbar-nav.navbar-right{:style => "margin-top:15px;"}
         -if current_user.nil?
           %li
@@ -25,5 +26,9 @@
         -else
           %li
             %a{href:"users/"+current_user.id.to_s}=current_user.email
+            -if current_user.role == 0
+              %li{style: "font-size:smaller;color:red;margin-top:18px"} (Admin)
+            -if current_user.role == 1
+              %li{style: "font-size:smaller;color:blue;margin-top:18px"} (Supervisor)
             %li{style: "font-size:smaller;"}= link_to('[Logout]', destroy_user_session_path, :method => :delete)
     .navbar-collapse
