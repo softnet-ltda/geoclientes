@@ -3,6 +3,9 @@
   = hidden_field_tag(:user_id,current_user.id)
   = f.label :event_type, "Tipo de evento"
   = f.select(:event_type, [["Reunion","Reunion"],["Llamada","Llamada"],["Venta","Venta"]])
+  %br
   = f.label :date, "Fecha"
   = f.date_select(:date)
+  %br
+  %br
   =f.submit "Agendar Evento", class: "btn btn-large btn-primary" 

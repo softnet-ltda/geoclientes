@@ -6,7 +6,7 @@
     =f.label :email
     .input-small=f.text_field :email
     %br
-    -if current_user.role == 0
+    -if current_user.role == 0 and @user != current_user
       =f.label "Nivel de permisos"
       .input-small
         %select(name="user[role]")

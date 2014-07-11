@@ -10,8 +10,10 @@ class ContactsController < ApplicationController
   end
   def index
 	  @contacts = Contact.all
+	  @event = Event.new
   end
   def show
 	  @contact = Contact.find(params[:id])
+	  @event = Event.new
   end
 end

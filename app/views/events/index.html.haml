@@ -1,21 +1,31 @@
-.col-md-4.contact-events
-  -@events.each do |e|
-    .event{style: "margin-bottom:30px;background:#ddd;padding:15px;"}
-      Nombre del cliente:
-      .event-customer-name
-        %a{href: "customers/"+e.contact.customer.id.to_s}=e.contact.customer.name
-      Direccion:
-      .event-customer-address=e.contact.customer.address
-      Fecha:
-      .event-date=e.date
-      Tipo:
-      .event-type=e.event_type
-      Nombre del vendedor:
-      .event-user
-        %a{href: "users/"+e.user.id.to_s}=e.user.name
-      Nombre del contacto:
-      .event-contact
-        %a{href: "contacts/"+e.contact.id.to_s}=e.contact.name
+.container
+  .col-md-4.contact-events
+    -@events.each do |e|
+      .event{style: "margin-bottom:30px"}
+        %h3
+          =link_to("Evento "+e.id.to_s, e)
+        %h4
+          Nombre del cliente:
+          .event-customer-name
+            %a{href: "customers/"+e.contact.customer.id.to_s}=e.contact.customer.name
+        %h4
+          Direccion:
+          .event-customer-address=e.contact.customer.address
+        %h4
+          Fecha:
+          .event-date=e.date.to_date
+        %h4
+          Tipo:
+          .event-type=e.event_type
+        %h4
+          Nombre del vendedor:
+          .event-user
+            %a{href: "users/"+e.user.id.to_s}=e.user.name
+        %h4
+          Nombre del contacto:
+          .event-contact
+            %a{href: "contacts/"+e.contact.id.to_s}=e.contact.name
+        %button="Hacer check-in"
 .col-md-5#map-canvas{:style => "width:800px;height:400px;margin:0px;padding:0px;"}
   %nbsp
 .row
@@ -23,7 +33,7 @@
   function initialize() {
     var locations = JSON.parse('#{@locs.to_json}')
     var mapOptions = {
-      zoom: 14,
+      zoom: 12,
       center: new google.maps.LatLng(locations[0][1],locations[0][2])
   }
   var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);

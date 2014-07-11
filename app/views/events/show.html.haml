@@ -1,0 +1,57 @@
+.container
+  .col-md-4
+    %h1 
+      ="Evento "
+      =@event.id.to_s
+  .row
+  .col-md-4
+    %h4
+      ="Tipo: "
+      =@event.event_type
+    %h4
+      ="Fecha: "
+      =@event.date.to_date.to_s
+    %h4
+      ="Empresa: "
+      =link_to(@event.contact.customer.name, @event.contact.customer)
+    %h4
+      ="Contacto: "
+      =link_to(@event.contact.name, @event.contact)
+    %h4
+      ="Usuario: "
+      =link_to(@event.user.name, @event.user)
+      %h4
+        %button="Hacer check-in"
+        :javascript
+          getGeoLocation();
+  .col-md-4
+    %h4 Editar evento:
+    =render 'events/form', :c => @event.contact, :current_user => current_user
+  .row
+  .col-md-6#map-canvas{:style => "height:400px;margin:0px;padding:0px;margin-top:50px;"}
+    %nbsp
+.row
+:javascript
+  function initialize() {
+    var location = new google.maps.LatLng(#{@event.contact.customer.latitude},#{@event.contact.customer.longitude})
+    var mapOptions = {
+      zoom: 14,
+      center: location
+  }
+  var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+  var marker = new google.maps.Marker({
+    position: location,
+    title: "#{@event.contact.customer.name}",
+    map: map
+  });
+  }
+  google.maps.event.addDomListener(window, 'load', initialize);
+:javascript
+  function getGeoLocation() {
+    navigator.geolocation.getCurrentPosition(setGeoCookie);
+    }
+
+    function setGeoCookie(position) {
+      var cookie_val = position.coords.latitude + "|" + position.coords.longitude;
+        document.cookie = "lat_lng=" + escape(cookie_val);
+        }

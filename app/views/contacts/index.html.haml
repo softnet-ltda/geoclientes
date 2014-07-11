@@ -1,21 +1,26 @@
-%h1 Contactos
-.container.col-md-4(style="margin-top:50px;")
-    
-  -if @contacts
-    - @contacts.each do |contact|
-      .contact{style: "margin-bottom:30px;background:#ddd;padding:15px;"}
-        %h4 Nombre:
-        .contact-name=link_to(contact.name,url_for(contact))
-        %h4 Direccion:
-        .contact-address=contact.customer.address
-        %br
+.container
+  .col-md-8(style="margin-top:50px;")
+    %h1 Contactos
+    -if @contacts
+      - @contacts.each do |contact|
+        .contact.col-md-4{style: "margin-bottom:30px"}
+          %h4 Nombre:
+          .contact-name=link_to(contact.name,url_for(contact))
+          %h4 Direccion:
+          .contact-address=contact.customer.address
+          %br
+          %button.event-toggle
+            Crear evento
+          %br
+          .event-form{:style => "display:none"}
+            =render 'events/form', :c => contact, :current_user => current_user
         -if !contact.events.empty?
-          %h4 Eventos:
-          .contact-events
+          .contact-events.col-md-4
+            %h4 Eventos:
             -contact.events.each do |e|
               .event
-                .event-date=e.date
-                .event-type=e.event_type
-                .event-user=e.user.name
-                .event-contact=e.contact.name
-  .row
+                .event-date=link_to e.date.to_date, e
+                .event-type="Tipo de evento: "+e.event_type
+                .event-user=link_to e.user.name, e.user
+              %br
+        .row
