@@ -25,7 +25,7 @@
           Nombre del contacto:
           .event-contact
             =link_to e.contact.name, e.contact
-        %button.check-in="Hacer check-in"
+        .check-in=link_to "Hacer check-in", event_path(e)+"/check_in.json"
   .col-md-5#map-canvas{:style => "height:300px;width:300px;margin:0px;padding:0px;"}
     %nbsp
 .row

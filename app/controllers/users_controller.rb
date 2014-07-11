@@ -21,6 +21,7 @@ class UsersController < ApplicationController
 	  @locs = []
 	  @events = @user.events
 	  @events.keep_if{ |e| @customer_set.include?(e.contact.customer) }
+	  @events.keep_if{ |e| e.status != 1 }
 	  @customers.each do |c|
 		  @point = [c.name, c.latitude, c.longitude]
 		  @locs.push(@point)

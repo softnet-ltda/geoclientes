@@ -25,6 +25,13 @@ class EventsController < ApplicationController
 		  end
   end
   def check_in
-	  @lat_lng = cookies[:lat_lng].split("|")
+	  @event = Event.find(params[:id])
+	  if current_user.distance_from([@event.contact.customer.latitude,@event.contact.customer.longitude]) < 5
+		  @event.status = 1 #checked-in
+		  @event.save
+	  end
+	  respond_to do |format|
+		format.json  { render :json => @event }
+	  end
   end
 end
