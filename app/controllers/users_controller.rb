@@ -16,8 +16,11 @@ class UsersController < ApplicationController
   def events
 	  @user = User.find(params[:id])
 	  @customers = Customer.near([@user.latitude, @user.longitude], 5)
+	  require 'set'
+	  @customer_set = @customers.to_set
 	  @locs = []
 	  @events = @user.events
+	  @events.keep_if{ |e| @customer_set.include?(e.contact.customer) }
 	  @customers.each do |c|
 		  @point = [c.name, c.latitude, c.longitude]
 		  @locs.push(@point)

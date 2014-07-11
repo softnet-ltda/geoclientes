@@ -3,11 +3,11 @@
     -@events.each do |e|
       .event{style: "margin-bottom:30px"}
         %h3
-          =link_to("Evento "+e.id.to_s, e)
+          =link_to "Evento "+e.id.to_s, e
         %h4
           Nombre del cliente:
           .event-customer-name
-            %a{href: "customers/"+e.contact.customer.id.to_s}=e.contact.customer.name
+            =link_to(e.contact.customer.name, e.contact.customer)
         %h4
           Direccion:
           .event-customer-address=e.contact.customer.address
@@ -20,14 +20,14 @@
         %h4
           Nombre del vendedor:
           .event-user
-            %a{href: "users/"+e.user.id.to_s}=e.user.name
+            =link_to e.user.name, e.user
         %h4
           Nombre del contacto:
           .event-contact
-            %a{href: "contacts/"+e.contact.id.to_s}=e.contact.name
+            =link_to e.contact.name, e.contact
         %button.check-in="Hacer check-in"
-.col-md-5#map-canvas{:style => "height:300px;width:300px;margin:0px;padding:0px;"}
-  %nbsp
+  .col-md-5#map-canvas{:style => "height:300px;width:300px;margin:0px;padding:0px;"}
+    %nbsp
 .row
 :javascript
   function error(msg){
