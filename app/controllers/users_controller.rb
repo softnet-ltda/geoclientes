@@ -13,6 +13,16 @@ class UsersController < ApplicationController
 	render 'show'
   end
 
+  def events
+	  @user = User.find(params[:id])
+	  @customers = Customer.near([@user.latitude, @user.longitude], 5)
+	  @locs = []
+	  @events = @user.events
+	  @customers.each do |c|
+		  @point = [c.name, c.latitude, c.longitude]
+		  @locs.push(@point)
+	  end
+  end
   def edit
 	  @user = User.find(params[:id])
   end
@@ -30,6 +40,17 @@ class UsersController < ApplicationController
 
   def index
 	  @users = User.all
+  end
+  def locate
+	  @user = User.find(params[:id])
+	  @user.latitude = params[:latitude].to_f
+	  @user.longitude = params[:longitude].to_f
+	  @user.save
+	  respond_to do |format|
+	    format.js   {}
+	    format.html   {}
+	    format.json   {}
+	  end
   end
 
 end

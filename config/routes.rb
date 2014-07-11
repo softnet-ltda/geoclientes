@@ -1,4 +1,6 @@
 Geoclientes::Application.routes.draw do
+  match 'users/:id/locate' => 'users#locate'
+  match 'users/:id/events' => 'users#events'
   devise_for :users
   resources :users
   resources :events
