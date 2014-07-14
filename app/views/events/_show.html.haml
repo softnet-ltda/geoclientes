@@ -1,0 +1,25 @@
+.event{style: "margin-bottom:30px"}
+  %h3
+    =link_to("Evento "+event.id.to_s, event)
+  %h4
+    Nombre del cliente:
+    .event-customer-name
+      %a{href: "customers/"+event.contact.customer.id.to_s}=event.contact.customer.name
+  %h4
+    Direccion:
+    .event-customer-address=event.contact.customer.address
+  %h4
+    Fecha:
+    .event-date=event.date.to_date
+  %h4
+    Tipo:
+    .event-type=event.event_type
+  %h4
+    Nombre del vendedor:
+    .event-user
+      %a{href: "users/"+event.user.id.to_s}=event.user.name
+  %h4
+    Nombre del contacto:
+    .event-contact
+      %a{href: "contacts/"+event.contact.id.to_s}=event.contact.name
+  %button.check-in="Hacer check-in"

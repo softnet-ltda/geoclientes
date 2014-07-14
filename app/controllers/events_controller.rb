@@ -12,9 +12,18 @@ class EventsController < ApplicationController
 	  @event = Event.find(params[:id])
   end
   def index
-	  @events = Event.all
+	  if current_user.role == 2
+		  @events = Event.all
+	  elsif current_user.role == 1
+		  current_user.users.each do |u|
+			  @events.append(u.events)
+		  end
+	  else
+		  @events = current_user.events
+	  end
+
 	  @locs = []
-	  Event.all.each do |e|
+	  @events.each do |e|
 		  @point = [e.contact.name+" - "+e.contact.customer.name, e.contact.customer.latitude, e.contact.customer.longitude]
 		  @locs.push(@point)
 	  end

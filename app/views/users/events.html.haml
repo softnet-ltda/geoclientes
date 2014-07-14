@@ -1,31 +1,7 @@
 .container
   .col-md-4.contact-events
     -@events.each do |e|
-      .event{style: "margin-bottom:30px"}
-        %h3
-          =link_to "Evento "+e.id.to_s, e
-        %h4
-          Nombre del cliente:
-          .event-customer-name
-            =link_to(e.contact.customer.name, e.contact.customer)
-        %h4
-          Direccion:
-          .event-customer-address=e.contact.customer.address
-        %h4
-          Fecha:
-          .event-date=e.date.to_date
-        %h4
-          Tipo:
-          .event-type=e.event_type
-        %h4
-          Nombre del vendedor:
-          .event-user
-            =link_to e.user.name, e.user
-        %h4
-          Nombre del contacto:
-          .event-contact
-            =link_to e.contact.name, e.contact
-        .check-in=link_to "Hacer check-in", event_path(e)+"/check_in.json"
+      =render e
   .col-md-5#map-canvas{:style => "height:300px;width:300px;margin:0px;padding:0px;"}
     %nbsp
 .row

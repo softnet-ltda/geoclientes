@@ -33,7 +33,8 @@ class UsersController < ApplicationController
 
   def show
 	  @user = User.find(params[:id])
-	  @supervisor_candidates = User.where("role < 2")
+	  @events = @user.events
+	  @supervisor_candidates = User.where("role < 2").keep_if{|e| e.id != params[:id].to_i}
   end
 
   def update

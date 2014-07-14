@@ -1,0 +1,33 @@
+.event{style: "margin-bottom:30px"}
+  %h3
+    =link_to "Evento "+event.id.to_s, event
+  %h4
+    Nombre del cliente:
+    .event-customer-name
+      =link_to(event.contact.customer.name, event.contact.customer)
+  %h4
+    Direccion:
+    .event-customer-address=event.contact.customer.address
+  %h4
+    Fecha:
+    .event-date=event.date.to_date
+  %h4
+    Tipo:
+    .event-type=event.event_type
+  %h4
+    Nombre del vendedor:
+    .event-user
+      %a{href: "users/"+event.user.id.to_s}=event.user.name
+  %h4
+    Estado:
+    -if event.status
+      ="Realizada (check-in el "+event.updated_at.to_s+")"
+    -else
+      ="Pendiente"
+      -if event.user == current_user
+        -if current_user.distance_from([event.contact.customer.latitude,event.contact.customer.longitude]) < 1
+          .check-in=link_to "Hacer check-in", event_path(event)+"/check_in.json"
+  %h4
+    Nombre del contacto:
+    .event-contact
+      %a{href: "contacts/"+event.contact.id.to_s}=event.contact.name
