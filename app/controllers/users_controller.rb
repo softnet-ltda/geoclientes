@@ -8,6 +8,7 @@ class UsersController < ApplicationController
 
   def create
 	@user.new(params[:user])
+	@user.name = @user.email.split("@").first
 	@user.role = 0
 	@user.save
 	render 'show'

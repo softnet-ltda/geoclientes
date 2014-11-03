@@ -26,7 +26,7 @@
       ="Pendiente"
       -if event.user == current_user
         -if current_user.distance_from([event.contact.customer.latitude,event.contact.customer.longitude]) < 1
-          .check-in=link_to "Hacer check-in", event_path(event)+"/check_in.json"
+          .check-in=link_to "Hacer check-in", event_path(event)+"/check_in"
   %h4
     Nombre del contacto:
     .event-contact

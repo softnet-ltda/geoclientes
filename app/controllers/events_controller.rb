@@ -39,8 +39,9 @@ class EventsController < ApplicationController
 		  @event.status = 1 #checked-in
 		  @event.save
 	  end
+	  flash[:success] = "El check-in fue realizado correctamente"
 	  respond_to do |format|
-		format.json  { render :json => @event }
+		format.html { redirect_to '/events' }
 	  end
   end
 end

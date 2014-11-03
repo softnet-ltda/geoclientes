@@ -11,13 +11,19 @@
       .input-small
         %select(name="user[role]")
           %option(value=1) Supervisor
-          %option(value=2) User
+          -if @user.role == 2
+            %option(value=2 selected) User
+          -else
+            %option(value=2) User
       %br
       =f.label "Supervisor"
       .input-small
       %select(name="user[supervisor_id]")
         -@supervisor_candidates.each do |u|
-          %option{:value => u.id}=u.name
+          -if u.name != nil
+            %option{:value => u.id}=u.name
+          -else
+            %option{:value => u.id}=u.email
     %br
     %br
     =f.submit "Guardar cambios", class: "btn btn-large btn-primary" 
