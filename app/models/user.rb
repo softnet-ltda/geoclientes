@@ -4,7 +4,6 @@ class User < ActiveRecord::Base
   devise :invitable, :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-  after_save :set_role
   geocoded_by [:latitude, :longitude]
 
   # Setup accessible (or protected) attributes for your model
@@ -15,12 +14,18 @@ class User < ActiveRecord::Base
   belongs_to :user, foreign_key: "supervisor_id"
   has_many :users, foreign_key: "supervisor_id"
 
-  after_invitation_accepted :set_role
+  after_save :set_role
 
   def set_role
 	  if self.role.nil?
-		  self.role = 2
-		  self.save
+		  if self.invited_by_id.nil?
+			  self.role = 0
+			  self.save
+		  end
+		  if !self.invited_by_id.nil?
+			  self.role = 2
+			  self.save
+		  end
 	  end
   end
 

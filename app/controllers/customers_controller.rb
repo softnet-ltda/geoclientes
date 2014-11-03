@@ -32,8 +32,13 @@ class CustomersController < ApplicationController
   end
 
   def edit
+	  @customer = Customer.find(params[:id])
   end
 
   def update
+	  @customer = Customer.find(params[:id])
+	  @customer.update_attributes(params[:customer])
+	  @customer.save
+	  render 'show'
   end
 end
