@@ -5,12 +5,13 @@
     .contacts
       .contacts-title Contactos
       -@customer.contacts.each do |c|
-        =link_to c.name, c
-        %button.event-toggle
-          Crear evento
-        %br
-        .event-form{:style => "display:none"}
-          =render 'events/form', :c => c, :current_user => current_user
+        .contact
+          =link_to c.name, c
+          %button.event-toggle
+            Crear evento
+          %br
+          .event-form{:style => "display:none"}
+            =render 'events/form', :c => c, :current_user => current_user
     =link_to("Crear nuevo contacto",url_for(new_contact_path)+"?customer_id="+@customer.id.to_s)
 
     -if current_user.role < 2

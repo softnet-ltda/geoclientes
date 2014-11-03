@@ -1,5 +1,5 @@
 $(document).ready(function(){
 		$(".event-toggle").click(function(){
-			$(".event-form").show()
+			$(this).siblings(".event-form").show()
 		})
 });

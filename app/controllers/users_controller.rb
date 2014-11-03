@@ -45,7 +45,7 @@ class UsersController < ApplicationController
   end
 
   def index
-	  @users = User.all
+	  @users = User.where("account = ?",current_user.account)
   end
   def locate
 	  @user = User.find(params[:id])

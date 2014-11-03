@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me
-  attr_accessible :name, :role, :supervisor_id
+  attr_accessible :name, :role, :supervisor_id, :account
   has_many :events
   has_many :customers
   belongs_to :user, foreign_key: "supervisor_id"
@@ -20,10 +20,12 @@ class User < ActiveRecord::Base
 	  if self.role.nil?
 		  if self.invited_by_id.nil?
 			  self.role = 0
+			  self.account = self.id
 			  self.save
 		  end
 		  if !self.invited_by_id.nil?
 			  self.role = 2
+			  self.account = self.invited_by.account
 			  self.save
 		  end
 	  end
@@ -38,4 +40,5 @@ class User < ActiveRecord::Base
 		  return "Admin"
 	  end
   end
+
 end

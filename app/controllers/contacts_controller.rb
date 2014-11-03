@@ -3,7 +3,7 @@ class ContactsController < ApplicationController
   def create
 	  @contact = Contact.new(params[:contact])
 	  @contact.save
-	  render 'show'
+	  redirect_to '/customers'
   end
   def new
 	  @contact = Contact.new
