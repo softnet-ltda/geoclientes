@@ -8,6 +8,7 @@ class CustomersController < ApplicationController
 
   def create
 	  @customer = Customer.new(params[:customer])
+	  @customer.account = current_user.account
 	  @customer.save
 	  render 'show'
   end
@@ -22,7 +23,7 @@ class CustomersController < ApplicationController
   end
 
   def index
-	  @customers = Customer.all
+	  @customers = Customer.where("account = ?",current_user.account)
 	  @customer = Customer.new
 	  @locs = []
 	  @customers.each do |c|

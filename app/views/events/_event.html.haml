@@ -24,7 +24,7 @@
       ="Realizada (check-in el "+event.updated_at.to_s+")"
     -else
       ="Pendiente"
-      -if event.user == current_user
+      -if event.user == current_user and current_user.latitude
         -if current_user.distance_from([event.contact.customer.latitude,event.contact.customer.longitude]) < 1
           .check-in=link_to "Hacer check-in", event_path(event)+"/check_in"
   %h4
