@@ -11,7 +11,7 @@
       %h4 
         Supervisor asignado: 
         %span= link_to @user.user.name, @user.user
-    -if current_user.role < 2 and !@events.empty?
+    -if current_user.role < 2 and !@events.nil?
       %br
       %br
       %h4 Reuniones de este usuario

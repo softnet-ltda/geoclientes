@@ -5,7 +5,7 @@
       %button.navbar-toggle{"data-target" => "#bs-example-navbar-collapse-1", "data-toggle" => "collapse", type: "button"}
         %span.sr-only Toggle navigation
       %a.navbar-brand(style="height:80px;" href="/")
-        %img(src="logo.gif")
+        %img(src="/logo.gif")
     / Collect the nav links, forms, and other content for toggling
     #bs-example-navbar-collapse-1.collapse.navbar-collapse
       %ul.nav.navbar-nav{:style => "margin-top:15px;"}
@@ -23,7 +23,7 @@
             %a{href: "/users/sign_in"} Ingresar
         -else
           %li
-            %a{href:"users/"+current_user.id.to_s}=current_user.email
+            %a{href:"/users/"+current_user.id.to_s}=current_user.email
             -if current_user.role == 0
               %li{style: "font-size:smaller;color:red;margin-top:18px"} (Admin)
             -if current_user.role == 1
