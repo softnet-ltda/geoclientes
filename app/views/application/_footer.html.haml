@@ -1,7 +1,10 @@
-.row
 %footer
-  .col-md-12{:style => "margin-top:120px;"}
-  .copy
-    %img{alt: "", src: "/footer_logo.png"}
-    =DateTime.now.year.to_s+"|"
-    %a{href: "#"} Privacy Policy
+  .container
+    .col-md-6
+      .row
+        %a{:href => "#"} Acerca de Geo Clientes
+    .col-md-6.copy
+      .row
+        © 2014 Geo Clientes, todos los derechos reservados.
+=javascript_include_tag("jquery.min")
+=javascript_include_tag("bootstrap.min")

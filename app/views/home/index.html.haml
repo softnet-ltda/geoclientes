@@ -1,257 +1,68 @@
 !!!
 %html{lang: "en"}
   %head
-    %meta{charset: "utf-8"}/
-    %title Bienvenidos a Geo Cliengtes
-    %link{href: "http://geoclientes.com/images/favicon.ico", rel: "icon"}/
-    %link{href: "http://geoclientes.com/images/favicon.ico", rel: "shortcut icon"}/
-    %link{href: "http://geoclientes.com/css/style.css", rel: "stylesheet"}/
-    %link{href: "http://geoclientes.com/css/camera.css", rel: "stylesheet"}/
-    %link{href: "http://geoclientes.com/css/form.css", rel: "stylesheet"}/
-    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
-    :javascript
-      $(document).ready(function(){
-        $('.slider_wrapper')._TMS({
-            show:0,
-            pauseOnHover:false,
-            prevBu:'.prev',
-            nextBu:'.next',
-            playBu:false,
-            duration:800,
-            preset:'fade',
-            pagination:true,//'.pagination',true,'<ul></ul>'
-            pagNums:false,
-            slideshow:8000,
-            numStatus:false,
-            banners: 'fade',
-            waitBannerAnimation:false,
-            progressBar:false
-        });
-      });
-      $(document).ready(function(){
-        !function(){
-      var map=[]
-       ,names=[]
-       ,win=$(window)
-       ,header=$('header')
-       ,currClass
-      $('.content').each(function(n){
-       map[n]=this.offsetTop
-       names[n]=$(this).attr('id')
-      })
-      win
-       .on('scroll',function(){
-        var i=0
-        while(map[i++]<=win.scrollTop());
-        if(currClass!==names[i-2])
-        currClass=names[i-2]
-        header.removeAttr("class").addClass(names[i-2])
-       })
-      }(); });
-            function goToByScroll(id){
-        $('html,body').animate({scrollTop: $("#"+id).offset().top},'slow');
-        }
-        $(document).ready(function(){
-            $().UItoTop({ easingType: 'easeOutQuart' });
-        });
-    /[if lt IE 8]
-      <div style=' clear: both; text-align:center; position: relative;'>
-      <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
-      <img src="http://storage.ie6countdown.com/assets/100/images/banners/warning_bar_0000_us.jpg" border="0" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today." />
-      </a>
-      </div>
-    /[if lt IE 9]
-      <script src="http://geoclientes.com/js/html5shiv.js"></script>
-      <link rel="stylesheet" media="screen" href="http://geoclientes.com/css/ie.css">
-    %meta{content: "text/html; charset=utf-8", "http-equiv" => "Content-Type"}/
-    :css
-      body {
-        background-image: url(http://geoclientes.com/images/fondo.jpg);
-        background-repeat: no-repeat;
-        background-position: center top;
-      }
-  %body
-    / ==============================header=================================
-    #banderas
-      %ul.dropdown
-        %li.active
-          %img{height: "12", src: "http://geoclientes.com/images/chile.jpg", width: "16"}/
-          Chile
-        %li.first
-          %a{href: "#"}
-            %img{height: "12", src: "http://geoclientes.com/images/mexico.jpg", width: "16"}/
-            Mexico
-        %li
-          %a{href: "#"}
-            %img{height: "12", src: "http://geoclientes.com/images/colombia.jpg", width: "16"}/
-            Colombia
-        %li
-          %a{href: "#"}
-            %img{height: "12", src: "http://geoclientes.com/images/argentina.jpg", width: "16"}/
-            Argentina
-        %li
-          %a{href: "#"}
-            %img{height: "12", src: "http://geoclientes.com/images/peru.jpg", width: "16"}/
-            Peru
-        %li
-          %a{href: "#"}
-            %img{height: "12", src: "http://geoclientes.com/images/venezuela.jpg", width: "16"}/
-            Venezuela
-        %li.last
-          %a{href: "#"}
-            %img{height: "12", src: "http://geoclientes.com/images/uruguay.jpg", width: "16"}/
-            Uruguay
-    / =======content================================
-    #page1.content
-      .container_12
-        .grid_12
-          .slider_wrapper
-            %ul.items
-              %li
-                %img{alt: "", src: "http://geoclientes.com/images/spacer.gif"}/
-                .caption.banner
-                  %h2 No le pierdas el rastro a tus clientes con Geo-Clientes.
-          .socials
-            %a{href: "#"}
-            %a{href: "#"}
-            %a{href: "#"}
-            %a{href: "#"}
-    #page2.content
-      .container_12
-        .grid_12
-          .slogan
-            %h3 ¿Por qué elegir Geoclientes?
-            .text1
-              %a
-                Geo-clientes permite que cualquier empresa o persona natural en chile o en América latina se pueda registrar y pueda crear una base de datos de sus clientes y vendedores.
+    %meta{:charset => "utf-8"}
+    %meta{:content => "IE=edge", "http-equiv" => "X-UA-Compatible"}
+    %meta{:content => "width=device-width, initial-scale=1", :name => "viewport"}
+    %title Geoclientes | Inicio
+    =favicon_link_tag
+    =stylesheet_link_tag("style")
+    =stylesheet_link_tag("smartphone")
+    =stylesheet_link_tag("tablet")
+    =stylesheet_link_tag("bootstrap")
+    %link{:href => "http://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700", :rel => "stylesheet", :type => "text/css"}
+  %body#index
+    %section
+      .container
+        .row
+          .col-md-7
+            %h1 Geolocaliza a tus clientes y organiza tus eventos desde cualquier lugar!
+            .paises
+              =image_tag("paises/arg.png")
+              =image_tag("paises/bol.png")
+              =image_tag("paises/bra.png")
+              =image_tag("paises/chi.png")
+              =image_tag("paises/col.png")
+              =image_tag("paises/cor.png")
+              =image_tag("paises/cuba.png")
+              =image_tag("paises/dom.png")
+              =image_tag("paises/ecu.png")
+              =image_tag("paises/elsa.png")
+              =image_tag("paises/esp.png")
+              %br
+              =image_tag("paises/eu.png")
+              =image_tag("paises/gua.png")
+              =image_tag("paises/hon.png")
+              =image_tag("paises/mx.png")
+              =image_tag("paises/nica.png")
+              =image_tag("paises/pana.png")
+              =image_tag("paises/para.png")
+              =image_tag("paises/pe.png")
+              =image_tag("paises/pr.png")
+              =image_tag("paises/uru.png")
+              =image_tag("paises/ecu.png")
+          .col-md-5.registrarse
+            .titulo
+              %h2 Registrarse
+              #pais
+                =image_tag("paises/chile-gran.png")
+            %p
+              Crea una cuenta en
+              %strong Geo Clientes
+              completando el siguiente formulario.
+              = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+                = devise_error_messages!
+                = f.label :email
                 %br/
+                = f.email_field :email, autofocus: true, class: "input-small"
                 %br/
-                Luego, una vez en terreno, el equipo de ventas registra su ubicación  en su usuario indicando su dirección de su cliente, sobre esta ubicación referente se podrá obtener información relevante como por ejemplo: número de visitas, ventas, reuniones, llamados, cotizaciones.
+                = f.label :password
                 %br/
+                = f.password_field :password, autocomplete: "off"
                 %br/
-                En esta plataforma intercambiaran información entre el equipo de ventas que estén realizando sus funciones en terreno, con el objetivo que el jefe de ventas o el supervisor pueda gestionar en línea las actividades de su equipo en la atención a sus clientes.
-        .grid_3
-          .box.maxheight
-            %span.box.maxheight1
-              %img{alt: "", src: "http://geoclientes.com/images/box1_img10.png"}/
-            .text1
-              %a{href: "#"}
-            %div
-              %a
-        .grid_3
-          .box.maxheight
-            %span.box.maxheight1
-              %img{alt: "", src: "http://geoclientes.com/images/box1_img5.png"}/
-            .text1
-              %a{href: "#"}
-            %div
-              %a
-        .grid_3
-          .box.maxheight
-            %span.box.maxheight1
-              %img{alt: "", src: "http://geoclientes.com/images/box1_img3.png"}/
-            .text1
-              %a{href: "#"}
-            %div
-              %a
-        .grid_3
-          .box.maxheight
-            %span.box.maxheight1
-              %img{alt: "", src: "http://geoclientes.com/images/box1_img10.png"}/
-            .text1
-              %a{href: "#"}
-            %div
-              %a
-    #page3.content
-      .container_12
-        .grid_12
-          .slogan
-            %h3 Nuestros Modulos
-            .text1
-        .grid_3
-          .box.maxheight1
-            %img{alt: "", height: "120", src: "http://geoclientes.com/images/box1_img10.png", width: "120"}/
-            .text1
-              %a{href: "#"} Modulo de seguimiento
-            Vivamus at magna non nunc tristique rhoncus. Aliquam nibh ante, egestas id dictum a, commodo luctus libero.
-        .grid_3
-          .box.maxheight1
-            %img{alt: "", height: "120", src: "http://geoclientes.com/images/box1_img5.png", width: "120"}/
-            .text1
-              %a{href: "#"} Modulo de agendamiento
-            Ite auctor non pellentesque vel, aliquet sit amet erat. Nullam eget dignissim nisi, aliquam feugiat.
-        .grid_3
-          .box.maxheight1
-            %img{alt: "", height: "120", src: "http://geoclientes.com/images/box1_img10.png", width: "120"}/
-            .text1
-              %a{href: "#"} Modulo de control de visitas
-            Praesent faucibusamus ater asmagna non nunc tristique rhoncus. Aliquam nib ante, tas id dictum.
-        .grid_3
-          .box.maxheight1
-            %img{alt: "", height: "120", src: "http://geoclientes.com/images/box1_img10.png", width: "120"}/
-            .text1
-              %a{href: "#"} Modulo de geolocalizacion
-            Etiam dui eros na non nunc tristique rhoncus. Aliquam nibh ante, egestas id dictum a commodo luctus libero.
-    #page4.content
-      .container_12
-        .grid_12
-          %h3 Vistas del Sistema
-        .companies
-          .grid_3
-            %div
-              %img{alt: "", src: "http://geoclientes.com/images/box1_img10.png"}/
-            = succeed "Aliquam" do
-              .text1 Company Name
-            %br/
-            %a{href: "#"} Go to Site
-          .grid_3
-            %img{alt: "", src: "http://geoclientes.com/images/box1_img10.png"}/
-            = succeed "Fusce" do
-              .text1 Company Name
-            %br/
-            %a{href: "#"} Go to Site
-          .grid_3
-            %img{alt: "", src: "http://geoclientes.com/images/box1_img10.png"}/
-            = succeed "Quisque" do
-              .text1 Company Name
-            %br/
-            %a{href: "#"} Go to Site
-          .grid_3
-            %img{alt: "", src: "http://geoclientes.com/images/box1_img10.png"}/
-            = succeed "Courrewerwe" do
-              .text1 Company Name
-            %br/
-            %a{href: "#"} Go to Site
-          .clear
-          .grid_3
-            %img{alt: "", src: "http://geoclientes.com/images/box1_img10.png"}/
-            = succeed "Oiliquam" do
-              .text1 Company Name
-            %br/
-            %a{href: "#"} Go to Site
-          .grid_3
-            %img{alt: "", src: "http://geoclientes.com/images/box1_img10.png"}/
-            = succeed "Gusce" do
-              .text1 Company Name
-            %br/
-            %a{href: "#"} Go to Site
-          .grid_3
-            %img{alt: "", src: "http://geoclientes.com/images/box1_img10.png"}/
-            = succeed "Niuisque" do
-              .text1 Company Name
-            %br/
-            %a{href: "#"} Go to Site
-          .grid_3
-            %img{alt: "", src: "http://geoclientes.com/images/box1_img10.png"}/
-            = succeed "Fouerourrewerwe" do
-              .text1 Company Name
-            %br/
-            %a{href: "#"} Go to Site
-    #page5.content
-      .container_12
-        .grid_12
-          .slogan
-            %h3 Nuestros Planes
-            .text1
-              Gyrto ivamus at magna non nunc tristique rhoncusu. Lliquam nibh ante, egestas id dictum a, commodo luctus mibero. Praesent faucibus malesuada faucibu. Monec laoreet metus id laoreet malesuadw.
-    / ==============================footer=================================
+                = f.label :password_confirmation
+                %br/
+                = f.password_field :password_confirmation, autocomplete: "off"
+                %br/
+                = f.submit "Sign up"
+              = render "devise/shared/links"

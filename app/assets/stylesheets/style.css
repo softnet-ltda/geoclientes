@@ -1,0 +1,336 @@
+#index body{
+    background-color: #000 !important;
+}
+
+body{
+    background: #ffffff; /* Old browsers */
+    background: -moz-linear-gradient(top,  #ffffff 70%, #e5e5e5 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(70%,#ffffff), color-stop(100%,#e5e5e5)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  #ffffff 70%,#e5e5e5 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  #ffffff 70%,#e5e5e5 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  #ffffff 70%,#e5e5e5 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  #ffffff 70%,#e5e5e5 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#e5e5e5',GradientType=0 ); /* IE6-9 */
+}
+
+a{
+    transition: 0.5s ease;
+    -o-transition: 0.5s ease;
+    -webkit-transition: 0.5s ease;
+}
+
+a:hover{
+    transition: 0.5s ease;
+    -o-transition: 0.5s ease;
+    -webkit-transition: 0.5s ease;
+}
+
+#index header{
+    position: absolute;
+}
+
+header{
+    padding-top: 15px;
+    -webkit-box-shadow: 0px 5px 10px 0px rgba(50, 50, 50, 0.75);
+    -moz-box-shadow:    0px 5px 10px 0px rgba(50, 50, 50, 0.75);
+    box-shadow:         0px 5px 10px 0px rgba(50, 50, 50, 0.75);
+    background-color: #000;
+    height: 90px;
+    z-index: 10;
+    width: 100%;
+}
+
+header .login{
+    margin-top: 5px;
+    text-align: right !important;
+}
+
+header .login input{
+    margin-bottom: 5px;
+    
+}
+
+header .login input:focus{
+    border: solid 1px #ce6b00;
+    position: relative;
+    color: #ce6b00;
+    -webkit-box-shadow: 0px 0px 30px 0px rgba(206, 107, 0, 1);
+    -moz-box-shadow:    0px 0px 30px 0px rgba(206, 107, 0, 1);
+    box-shadow:         0px 0px 30px 0px rgba(206, 107, 0, 1);
+}
+
+#index .input-sm {
+    height: 28px !important;
+    padding: 3px 9px !important;
+}
+
+#index .btn-sm {
+    height: 28px !important;
+    padding: 3px 9px !important;
+    background-color: #ce6b00 !important;
+    background-image: url(../images/btn.png);
+    background-repeat: no-repeat;
+    border: solid 1px #a05300 !important;
+}
+
+#index header .login span{
+    font-size: 12px;
+    position: absolute;
+    width: 123px;
+    margin-top: 35px;
+    margin-left: -123px;
+}
+
+#index header .login span a{
+    color: #CCC;
+}
+
+.logo{
+    margin-top: 10px;
+}
+
+#index section{
+    background-image: url("/assets/fondo.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+section{
+    margin-bottom: 30px;
+}
+
+#index section .container{
+    position: relative;
+    height: 100%;
+}
+
+section h1{
+    color: #FFF;
+    font-size: 30px;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+#index section h1{
+    border-left: solid 5px #FFF;
+    color: #FFF;
+    padding-left: 10px;
+    position: relative;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 1);
+    margin-top: 53%;
+    margin-bottom: 11%;
+    line-height: 1.5;
+    font-size: 30px;
+}
+
+#index section .paises{
+    margin-top: 15%;
+    background: rgba(0,0,0,0.6);
+    padding: 1% 2%;
+    float: left;
+    border: solid 1px #FFF;
+}
+
+section .paises img{
+    margin-right: 5px;
+    padding-top: 2%;
+    padding-bottom: 1%;
+}
+
+section .registrarse{
+    background: rgba(255,255,255,0.6);
+    height: 100%;
+    position: absolute;
+    right: 0;
+    width: 42%;
+    padding: 0% 4%;
+}
+
+#index footer{
+    position: absolute;
+    bottom: 0px;
+    color: #FFF;
+    width: 100%;
+    background-color: #000;
+}
+
+#index footer a{
+    color: #FFF;
+}
+
+footer .container {
+    border-top: solid 3px #ce6b00;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+footer .container .copy{
+    text-align: right;
+}
+
+.registrarse .titulo{
+    margin-top: 55%;
+    border-top: solid 1px #999;
+    border-bottom:  solid 1px #999;
+    display: inline-block;
+    width: 94%;
+}
+
+.registrarse .titulo h2{
+    padding-top: 0px !important;
+    margin-top: 5px !important;
+    margin-bottom: 5px !important;
+    float: left;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.registrarse .titulo #pais{
+    float: right;
+    left: 6%;
+    position: relative;
+}
+
+.registrarse p{
+    margin-top: 15px;
+}
+
+.registrarse form{
+    margin-top: 20px;
+}
+
+.registrarse form input{
+    margin-top: 10px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+
+.registrarse form button{
+    margin-top: 10px;
+}
+
+header nav{
+    float: right;
+    margin-top: 3.5%;
+    width: 100%;
+}
+
+header nav .nav{
+    float: right;
+}
+
+header .nav li a:hover{
+    background-color: #ce6b00;
+    color: #FFF;
+}
+
+header .pais{
+    margin-top: 4.5%;
+    margin-left: -50px;
+}
+
+#clientes section .mapa{
+    width: 100%;
+    height: 350px;
+}
+
+footer{
+    position: relative;
+    color: #FFF;
+    width: 100%;
+    background-color: #000;
+}
+
+#clientes section .cabecera{
+    margin-top: -6px;
+}
+
+section .cabecera{
+    background-color: #ce6b00;
+    color: #FFF;
+    -webkit-border-bottom-right-radius: 10px;
+    -webkit-border-bottom-left-radius: 10px;
+    -moz-border-radius-bottomright: 10px;
+    -moz-border-radius-bottomleft: 10px;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+section .cabecera h1{
+    margin: 0px;
+}
+
+section .cabecera .breadcrumb{
+    margin: 0px;
+    padding: 6px 15px;
+}
+
+section .cabecera .breadcrumb a{
+    color: #ce6b00;
+}
+
+section .cabecera a button{
+    background-color: transparent;
+    border: solid 1px #FFF;
+    color: #FFF;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+    float: right;
+    transition: 0.5s ease;
+    -o-transition: 0.5s ease;
+    -webkit-transition: 0.5s ease;
+}
+
+section .cabecera a button:hover{
+    background-color: #FFF;
+    color: #ce6b00;
+    transition: 0.5s ease;
+    -o-transition: 0.5s ease;
+    -webkit-transition: 0.5s ease;
+}
+
+#clientes section .dataTables_wrapper{
+    margin-top: 15px;
+    margin-bottom: 30px;
+    min-height: 276px;
+}
+
+#clientes section .dataTables_wrapper img{
+    margin-right: 10px;
+}
+
+#clientes section .dataTables_wrapper .centrar{
+    text-align: center;
+}
+
+#clientes section .dataTables_wrapper input{
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    border-radius: 15px;
+    border: solid 1px #ce6b00;
+}
+
+#clientes section .dataTables_wrapper .dataTable{
+    margin-bottom: 25px;
+    padding-top: 15px;
+}
+
+.nobanner{
+    width: 100%;
+    display: inline-block;
+}
+
+#eventos .calendario{
+    margin-top: 2em;
+    margin-bottom: 1em;
+}
+
+#eventos #calendarContainer1{
+    background-color: transparent; !important;
+}
