@@ -1,9 +1,20 @@
-.container
-  .col-md-4.contact-events
-    -@events.each do |e|
-      =render e
-  .col-md-5#map-canvas{:style => "height:300px;width:300px;margin:0px;padding:0px;"}
-    %nbsp
+%section
+  .container
+    .row.cabecera
+      .col-md-3
+        %h1 Eventos
+      .col-md-6
+        %ol.breadcrumb
+          %li
+            %a{:href => "index.html"} Inicio
+          %li.active Eventos
+      .col-md-3
+        %a{:href => "#"}
+          %button.btn.btn-sm
+            %span Agregar Evento
+            %span.glyphicon.glyphicon-plus{"aria-hidden" => "true"}
+    .row
+      %iframe.calendario{:frameborder => "0", :height => "600", :scrolling => "no", :src => "https://www.google.com/calendar/embed?showTitle=0&amp;showCalendars=0&amp;height=600&amp;wkst=2&amp;bgcolor=%23FFFFFF&amp;src=sfrikehfh0ncncvinbrqsrbrcg%40group.calendar.google.com&amp;color=%232952A3&amp;ctz=America%2FSantiago", :style => " border-width:0 ", :width => "100%"}
 .row
 :javascript
   function error(msg){

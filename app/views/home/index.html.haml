@@ -1,68 +1,54 @@
-!!!
-%html{lang: "en"}
-  %head
-    %meta{:charset => "utf-8"}
-    %meta{:content => "IE=edge", "http-equiv" => "X-UA-Compatible"}
-    %meta{:content => "width=device-width, initial-scale=1", :name => "viewport"}
-    %title Geoclientes | Inicio
-    =favicon_link_tag
-    =stylesheet_link_tag("style")
-    =stylesheet_link_tag("smartphone")
-    =stylesheet_link_tag("tablet")
-    =stylesheet_link_tag("bootstrap")
-    %link{:href => "http://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700", :rel => "stylesheet", :type => "text/css"}
-  %body#index
-    %section
-      .container
-        .row
-          .col-md-7
-            %h1 Geolocaliza a tus clientes y organiza tus eventos desde cualquier lugar!
-            .paises
-              =image_tag("paises/arg.png")
-              =image_tag("paises/bol.png")
-              =image_tag("paises/bra.png")
-              =image_tag("paises/chi.png")
-              =image_tag("paises/col.png")
-              =image_tag("paises/cor.png")
-              =image_tag("paises/cuba.png")
-              =image_tag("paises/dom.png")
-              =image_tag("paises/ecu.png")
-              =image_tag("paises/elsa.png")
-              =image_tag("paises/esp.png")
-              %br
-              =image_tag("paises/eu.png")
-              =image_tag("paises/gua.png")
-              =image_tag("paises/hon.png")
-              =image_tag("paises/mx.png")
-              =image_tag("paises/nica.png")
-              =image_tag("paises/pana.png")
-              =image_tag("paises/para.png")
-              =image_tag("paises/pe.png")
-              =image_tag("paises/pr.png")
-              =image_tag("paises/uru.png")
-              =image_tag("paises/ecu.png")
-          .col-md-5.registrarse
-            .titulo
-              %h2 Registrarse
-              #pais
-                =image_tag("paises/chile-gran.png")
-            %p
-              Crea una cuenta en
-              %strong Geo Clientes
-              completando el siguiente formulario.
-              = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-                = devise_error_messages!
-                = f.label :email
-                %br/
-                = f.email_field :email, autofocus: true, class: "input-small"
-                %br/
-                = f.label :password
-                %br/
-                = f.password_field :password, autocomplete: "off"
-                %br/
-                = f.label :password_confirmation
-                %br/
-                = f.password_field :password_confirmation, autocomplete: "off"
-                %br/
-                = f.submit "Sign up"
-              = render "devise/shared/links"
+%section
+  .container
+    .row
+      .col-md-7
+        %h1 Geolocaliza a tus clientes y organiza tus eventos desde cualquier lugar!
+        .paises
+          =image_tag("paises/arg.png")
+          =image_tag("paises/bol.png")
+          =image_tag("paises/bra.png")
+          =image_tag("paises/chi.png")
+          =image_tag("paises/col.png")
+          =image_tag("paises/cor.png")
+          =image_tag("paises/cuba.png")
+          =image_tag("paises/dom.png")
+          =image_tag("paises/ecu.png")
+          =image_tag("paises/elsa.png")
+          =image_tag("paises/esp.png")
+          %br
+          =image_tag("paises/eu.png")
+          =image_tag("paises/gua.png")
+          =image_tag("paises/hon.png")
+          =image_tag("paises/mx.png")
+          =image_tag("paises/nica.png")
+          =image_tag("paises/pana.png")
+          =image_tag("paises/para.png")
+          =image_tag("paises/pe.png")
+          =image_tag("paises/pr.png")
+          =image_tag("paises/uru.png")
+          =image_tag("paises/ecu.png")
+      .col-md-5.registrarse
+        .titulo
+          %h2 Registrarse
+          #pais
+          =image_tag("paises/chile-gran.png")
+        %p
+          Crea una cuenta en
+          %strong Geo Clientes
+          completando el siguiente formulario.
+        = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+          = devise_error_messages!
+          = f.label :email
+          %br/
+          = f.email_field :email, autofocus: true, class: "input-small"
+          %br/
+          = f.label :password
+          %br/
+          = f.password_field :password, autocomplete: "off"
+          %br/
+          = f.label :password_confirmation
+          %br/
+          = f.password_field :password_confirmation, autocomplete: "off"
+          %br/
+          = f.submit "Sign up"
+        = render "devise/shared/links"

@@ -1,0 +1,19 @@
+!!!
+%html{lang: "en"}
+  %head
+    %meta{:charset => "utf-8"}
+    %meta{:content => "IE=edge", "http-equiv" => "X-UA-Compatible"}
+    %meta{:content => "width=device-width, initial-scale=1", :name => "viewport"}
+    %title Geoclientes | Inicio
+    =favicon_link_tag
+    =stylesheet_link_tag("style")
+    =stylesheet_link_tag("smartphone")
+    =stylesheet_link_tag("tablet")
+    =stylesheet_link_tag("bootstrap")
+    %link{:href => "http://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700", :rel => "stylesheet", :type => "text/css"}
+  %body#index
+    = render "menu"
+    - flash.each do |key, value|
+      = content_tag :div, value, class: "flash #{key}"
+    = yield
+    = render "footer"
