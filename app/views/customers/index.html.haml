@@ -1,5 +1,5 @@
+#map-canvas.mapa{:frameborder => "0", :style => "border:0;width:100%;height:300px"}
 %section
-  %iframe#map-canvas.mapa{:frameborder => "0", :style => "border:0;width:100%;height:300px"}
   .container
     .row.cabecera
       .col-md-3
@@ -40,9 +40,10 @@
                   Ver
                   %span.glyphicon.glyphicon-map-marker{"aria-hidden" => "true"}
               %td.centrar
-                %button
-                  Modificar
-                  %span.glyphicon.glyphicon-pencil{"aria-hidden" => "true"}
+                =link_to edit_customer_path(customer) do
+                  %button
+                    Modificar
+                    %span.glyphicon.glyphicon-pencil{"aria-hidden" => "true"}
               %td.centrar
                 %input#blankCheckbox{"aria-label" => "...", :type => "checkbox", :value => "option1"}/
 

@@ -11,7 +11,8 @@
     =stylesheet_link_tag("tablet")
     =stylesheet_link_tag("bootstrap")
     %link{:href => "http://fonts.googleapis.com/css?family=Ubuntu:300,400,500,700", :rel => "stylesheet", :type => "text/css"}
-  %body#index
+    %script(type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAYh-S5idDK9dpU2I4JvsmD8b8z62pxcVk&sensor=false")
+  %body
     = render "menu"
     - flash.each do |key, value|
       = content_tag :div, value, class: "flash #{key}"
