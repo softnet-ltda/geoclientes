@@ -119,14 +119,13 @@ section h1{
     padding-left: 10px;
     position: relative;
     text-shadow: 2px 2px 6px rgba(0, 0, 0, 1);
-    margin-top: 53%;
+    margin-top: 23%;
     margin-bottom: 11%;
     line-height: 1.5;
     font-size: 30px;
 }
 
-#index section .paises{
-    margin-top: 15%;
+section .paises{
     background: rgba(0,0,0,0.6);
     padding: 1% 2%;
     float: left;
@@ -148,15 +147,16 @@ section .registrarse{
     padding: 0% 4%;
 }
 
-#index footer{
-    position: absolute;
+footer{
+    position: relative;
+    margin-top:613px;
     bottom: 0px;
     color: #FFF;
     width: 100%;
     background-color: #000;
 }
 
-#index footer a{
+footer a{
     color: #FFF;
 }
 
@@ -171,7 +171,7 @@ footer .container .copy{
 }
 
 .registrarse .titulo{
-    margin-top: 55%;
+    margin-top: 25%;
     border-top: solid 1px #999;
     border-bottom:  solid 1px #999;
     display: inline-block;

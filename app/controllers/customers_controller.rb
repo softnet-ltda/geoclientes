@@ -1,7 +1,7 @@
 require 'csv'
 class CustomersController < ApplicationController
   before_filter :authenticate_user!
-  before_filter :authenticate_supervisor!, :only => :new
+  before_filter :deny_access, :unless => :supervisor?, :only => :new
 
   def new
 	  @customer = Customer.new
@@ -78,5 +78,8 @@ class CustomersController < ApplicationController
 	  @customer.update_attributes(params[:customer])
 	  @customer.save
 	  render 'show'
+  end
+  def supervisor?
+    current_user.role < 2
   end
 end

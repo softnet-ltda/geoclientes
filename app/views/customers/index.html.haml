@@ -1,15 +1,51 @@
-.container
-  .customers.col-md-4
-    - @customers.each do |customer|
-      .customer
-        .customer-name=link_to(customer.name,url_for(customer))
-        .customer-address=customer.address
-  .col-md-8#map-canvas{:style => "height:400px;margin:0px;padding:0px;margin-top:30px;"}
-    %nbsp
-  .row
-    .col-md-4
-      %h4 Crear Cliente:
-      =render 'form'
+%section
+  %iframe#map-canvas.mapa{:frameborder => "0", :style => "border:0;width:100%;height:300px"}
+  .container
+    .row.cabecera
+      .col-md-3
+        %h1 Clientes
+      .col-md-6
+        %ol.breadcrumb
+          %li
+            %a{:href => "index.html"} Inicio
+          %li.active Clientes
+      .col-md-3
+        =link_to new_customer_path do
+          %button.btn.btn-sm
+            %span Agregar Cliente
+            %span.glyphicon.glyphicon-plus{"aria-hidden" => "true"}
+    .row
+      %table#example.display{:cellspacing => "0", :width => "100%"}
+        %thead
+          %tr
+            %th Nombre Empresa
+            %th Dirección
+            %th Ver ubicación
+            %th Modificar
+            %th Desactivar
+        %tfoot
+          %tr
+            %th Nombre Empresa
+            %th Dirección
+            %th Ver ubicación
+            %th Modificar
+            %th Desactivar
+        %tbody
+          -@customers.each do |customer|
+            %tr
+              %td=customer.name
+              %td=customer.address
+              %td.centrar
+                %button
+                  Ver
+                  %span.glyphicon.glyphicon-map-marker{"aria-hidden" => "true"}
+              %td.centrar
+                %button
+                  Modificar
+                  %span.glyphicon.glyphicon-pencil{"aria-hidden" => "true"}
+              %td.centrar
+                %input#blankCheckbox{"aria-label" => "...", :type => "checkbox", :value => "option1"}/
+
 :javascript
   function initialize() {
     var locations = JSON.parse('#{@locs.to_json}')
