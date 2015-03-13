@@ -3,4 +3,8 @@ class Customer < ActiveRecord::Base
   has_many :contacts
   geocoded_by :address
   after_validation :geocode
+  def switch_status!
+  	status = !status
+	self.save
+  end
 end

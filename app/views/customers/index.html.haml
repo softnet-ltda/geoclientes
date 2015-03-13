@@ -44,7 +44,9 @@
                   %button
                     Modificar
               %td.centrar
-                %input#blankCheckbox{"aria-label" => "...", :type => "checkbox", :value => "option1"}/
+                =link_to edit_customer_path(customer) do
+                  %button
+                    Desactivar
 
 :javascript
   function initialize() {

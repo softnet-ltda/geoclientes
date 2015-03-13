@@ -82,4 +82,8 @@ class CustomersController < ApplicationController
   def supervisor?
     current_user.role < 2
   end
+  def disable
+	@customer = Customer.find(params[:id])
+	@customer.switch_status!
+  end
 end
