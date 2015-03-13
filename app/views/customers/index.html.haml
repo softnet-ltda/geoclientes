@@ -36,8 +36,9 @@
               %td=customer.name
               %td=customer.address
               %td.centrar
-                %button
-                  Ver
+                =link_to customer_path(customer) do
+                  %button
+                    Ver
               %td.centrar
                 =link_to edit_customer_path(customer) do
                   %button
