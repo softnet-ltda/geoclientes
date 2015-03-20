@@ -1,3 +1,4 @@
+=javascript_include_tag("jquery.min")
 =javascript_include_tag("customer")
 %section
   .container
@@ -12,14 +13,16 @@
             %a{:href => "clientes.html"} Clientes
           %li.active Modificar [Cliente]
     .row
-      .col-md-12
+      .col-md-8
         %form
           .row
             .col-md-1
               %span Empresa:
             .col-md-5
               %input{:placeholder => "Nombre Empresa", :required => "", :type => "text", :value => @customer.name}
-            .col-md-2
+          .row
+            %br
+            .col-md-1
               %span Caza Matríz
             .col-md-4
               %select.form-control
@@ -36,11 +39,12 @@
                 %input{:value => s.address, :placeholder => "Direccion", :required => "", :type => "text"}
           .row
             .col-md-12
-              %button.btn-success.btn-xs
+              .col-md-2.btn-success.btn-xs.sucursal-toggle
                 Agregar Sucursal
                 %span.glyphicon.glyphicon-plus{"aria-hidden" => "true"}
-                .sucursal-form{:style => "display:none"}
-                  =render 'sucursales/form', :c => @customer, :current_user => current_user
+              .sucursal-form{:style => "display:none"}
+                -@sucursal = Sucursal.new
+                =render 'sucursales/form', :c => @customer, :current_user => current_user
 
           .row
             .col-md-12
@@ -63,10 +67,27 @@
                     %option{:value => s.id}=s.address
           .row
             .col-md-12
-              %button.btn-success.btn-xs
+              .col-md-2.btn-success.btn-xs.contact-toggle
                 Agregar Contacto
                 %span.glyphicon.glyphicon-plus{"aria-hidden" => "true"}
-                .contact-form{:style => "display:none"}
-                  -@contact = Contact.new
-                  =render 'contacts/form', :c => @customer, :current_user => current_user
-
+              .contact-form{:style => "display:none"}
+                -@contact = Contact.new
+                =render 'contacts/form', :c => @customer, :current_user => current_user
+      .col-md-4#map-canvas{:style => "height:400px;margin:0px;padding:0px;margin-top:50px;"}
+        %nbsp
+.row
+:javascript
+  function initialize() {
+    var location = new google.maps.LatLng(#{@customer.latitude},#{@customer.longitude})
+    var mapOptions = {
+      zoom: 14,
+      center: location
+  }
+  var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+  var marker = new google.maps.Marker({
+    position: location,
+    title: "#{@customer.name}",
+    map: map
+  });
+  }
+  google.maps.event.addDomListener(window, 'load', initialize);

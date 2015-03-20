@@ -1,5 +1,11 @@
 $(document).ready(function(){
-		$(".event-toggle").click(function(){
-			$(this).siblings(".event-form").show()
-		})
+  $(".event-toggle").click(function(){
+    $(this).siblings(".event-form").show()
+  })
+  $(".sucursal-toggle").click(function(){
+    $(this).siblings(".sucursal-form").show()
+  })
+  $(".contact-toggle").click(function(){
+    $(this).siblings(".contact-form").show()
+  })
 });
