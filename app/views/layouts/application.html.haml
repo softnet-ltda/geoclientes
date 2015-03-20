@@ -15,6 +15,6 @@
   %body
     = render "menu"
     - flash.each do |key, value|
-      = content_tag :div, value, class: "flash #{key}"
+      = content_tag :div, value, class: "flash #{key}", style: "z-index:100; position:absolute; right:115px;"
     = yield
     = render "footer"

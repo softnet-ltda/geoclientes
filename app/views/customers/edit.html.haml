@@ -1,2 +1,64 @@
-%h1= "Editar Cliente"
-=render 'form'
+%section
+  .container
+    .row.cabecera
+      .col-md-6
+        %h1 Modificar [Cliente]
+      .col-md-6
+        %ol.breadcrumb
+          %li
+            %a{:href => "index.html"} Inicio
+          %li
+            %a{:href => "clientes.html"} Clientes
+          %li.active Modificar [Cliente]
+    .row
+      .col-md-12
+        %form
+          .row
+            .col-md-1
+              %span Empresa:
+            .col-md-5
+              %input{:placeholder => "Nombre Empresa", :required => "", :type => "text", :value => @customer.name}
+            .col-md-2
+              %span Caza Matríz
+            .col-md-4
+              %select.form-control
+                -@sucursales.each do |s|
+                  %option{:value => s.id}=s.name
+          .row
+            .col-md-12
+              %h2 Sucursales
+          -@sucursales.each_with_index do |s, idx|
+            .row
+              .col-md-1
+                %span="Sucursal #{idx+1}"
+              .col-md-5
+                %input{:value => s.address, :placeholder => "Direccion", :required => "", :type => "text"}
+          .row
+            .col-md-12
+              %button.btn-success.btn-xs
+                Agregar Sucursal
+                %span.glyphicon.glyphicon-plus{"aria-hidden" => "true"}
+          .row
+            .col-md-12
+              %h2 Contactos
+          -@contacts.each_with_index do |c, idx|
+            .row
+              .col-md-1
+                %span="Contacto #{idx+1}"
+              .col-md-2
+                %input{:value => c.name, :placeholder => "Nombre contacto", :required => "", :type => "text"}
+              .col-md-2
+                %input{:placeholder => "Cargo", :required => "", :type => "text", :value => c.position}
+              .col-md-2
+                %input{:value => c.phone, :placeholder => "Telefóno", :required => "", :type => "text"}
+              .col-md-2
+                %input{:value => c.email, :placeholder => "E-mail", :required => "", :type => "email"}
+              .col-md-3
+                %select.form-control
+                  -@sucursales.each do |s|
+                    %option{:value => s.id}=s.name
+          .row
+            .col-md-12
+              %button.btn-success.btn-xs
+                Agregar Contacto
+                %span.glyphicon.glyphicon-plus{"aria-hidden" => "true"}

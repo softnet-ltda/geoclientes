@@ -35,10 +35,13 @@ class CustomersController < ApplicationController
 
   def edit
 	  @customer = Customer.find(params[:id])
+	  @sucursales = @customer.sucursales
+	  @contacts = @customer.contacts
   end
 
  def load_customers
  end
+
  def load_customers_update
    count=0
    begin
