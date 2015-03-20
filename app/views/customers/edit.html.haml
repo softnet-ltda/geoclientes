@@ -1,3 +1,4 @@
+=javascript_include_tag("customer")
 %section
   .container
     .row.cabecera
@@ -23,7 +24,7 @@
             .col-md-4
               %select.form-control
                 -@sucursales.each do |s|
-                  %option{:value => s.id}=s.name
+                  %option{:value => s.id}=s.address
           .row
             .col-md-12
               %h2 Sucursales
@@ -38,6 +39,9 @@
               %button.btn-success.btn-xs
                 Agregar Sucursal
                 %span.glyphicon.glyphicon-plus{"aria-hidden" => "true"}
+                .sucursal-form{:style => "display:none"}
+                  =render 'sucursales/form', :c => @customer, :current_user => current_user
+
           .row
             .col-md-12
               %h2 Contactos
@@ -56,9 +60,13 @@
               .col-md-3
                 %select.form-control
                   -@sucursales.each do |s|
-                    %option{:value => s.id}=s.name
+                    %option{:value => s.id}=s.address
           .row
             .col-md-12
               %button.btn-success.btn-xs
                 Agregar Contacto
                 %span.glyphicon.glyphicon-plus{"aria-hidden" => "true"}
+                .contact-form{:style => "display:none"}
+                  -@contact = Contact.new
+                  =render 'contacts/form', :c => @customer, :current_user => current_user
+

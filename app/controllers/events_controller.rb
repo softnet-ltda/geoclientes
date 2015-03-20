@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  #before_filter :authenticate_user!
+  before_filter :authenticate_user!
 
   def create
 	  @event = Event.new(params[:event])
@@ -28,7 +28,8 @@ class EventsController < ApplicationController
 	  end
 
 	  @locs = []
-	  @events.flatten.each do |e|
+    @events = @events.flatten
+	  @events.each do |e|
 		  @point = [e.contact.name+" - "+e.contact.customer.name, e.contact.customer.latitude, e.contact.customer.longitude]
 		  @locs.push(@point)
 	  end
